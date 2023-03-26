@@ -103,7 +103,8 @@ module game_miniBeta (
   //  debug_out[7:4] = players.out;    
   //  debug_out = game_controlunit.debug;
     
-    debug_out = players.out;
+    debug_out = players.timer;
+ //   debug_out = vc.debug;
     p1_out = players.all_scores[15:0];
     p2_out = players.all_scores[31:16];
     debug_slowclock = slow_timer.value;

@@ -13,7 +13,7 @@ module game_miniRegfiles (
     output out_b[16], //read port b
     
     //debug
-    output out[16],
+    output timer[16],
     output all_scores[32],
     output all_buttons[4],
     output counter_out[16]
@@ -23,13 +23,13 @@ module game_miniRegfiles (
 {
   .clk(clk){
     .rst(rst){
-      dff p1_score[16];
-      dff p2_score[16];
-      dff p1_buttonPress[16];
-      dff p2_buttonPress[16];
-      dff current_counter[16];
-      dff temp_var[16];
-      dff current_timer[16];
+      dff p1_score[16](#INIT(0));
+      dff p2_score[16](#INIT(0));
+      dff p1_buttonPress[16](#INIT(0));
+      dff p2_buttonPress[16](#INIT(0));
+      dff current_counter[16](#INIT(0));
+      dff temp_var[16](#INIT(0));
+      dff current_timer[16](#INIT(0));
     }
   }
 
@@ -80,7 +80,7 @@ module game_miniRegfiles (
     all_scores[31:16] = p2_score.q;
     all_buttons[1:0] = p1_buttonPress.q[1:0];
     all_buttons[3:2] = p2_buttonPress.q[1:0];
-    out = current_timer.q;
+    timer = current_timer.q;
     counter_out = current_counter.q;
   }
 }
