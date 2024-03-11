@@ -82,7 +82,7 @@ module game_CU (
     case(game_fsm.q){
     
       game_fsm.START_SET_TIMER: 
-        alufn = b011010;                             //ADD
+        alufn = b011010;                             //A
         asel = b11;                                  //30
         we_regfile = 1; 
         regfile_write_address = b1000;                     //timer reg
